@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Receitas</title>
+
+  <!-- Fonte elegante do Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f1e5dff8;
+      color: #333;
+      padding: 40px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    h2, h3 {
+      text-align: center;
+      color: #035c3e;
+    }
+
+    #datetime {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    img {
+      display: block;
+      margin: 20px auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      max-width: 50%;
+      height: auto;
+    }
+
+    button {
+      display: block;
+      margin: 10px auto;
+      padding: 12px 24px;
+      font-size: 16px;
+      background-color: #004d50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #00f8ae;
+    }
+
+    #texto {
+      background-color: rgb(240, 240, 240);
+      padding: 20px;
+      margin-top: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    a {
+      display: block;
+      text-align: center;
+      margin-top: 30px;
+      text-decoration: none;
+      color: #d472dd;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Receitas</h2>
+
+    <button onclick="showDateTime()">Mostrar Data e Hora</button>
+  <p id="datetime"></p>
+
+  <h3>BOLO DE CENOURA</h3>
+
+  <img id="myImage" src="bolo_cenoura_horizontal.webp" alt="Imagem do brownie">
+  <button onclick="changeImage()">Trocar Imagem</button>
+
+  <div id="texto">
+    <p><strong>INGREDIENTES:</strong></p>
+    <p>
+        1/2 xícara (chá) de óleo<br>
+        3 cenouras médias raladas<br>
+        4 ovos<br>
+        2 e 1/2 xícaras (chá) de farinha de trigo<br>
+        2 xícaras (chá) de açúcar<br>
+      
+1 colher (sopa) de fermento em pó<br>
+      <p>COBERTURA</p>
+      
+1 colher (sopa) de manteiga<br>
+3 colheres (sopa) de chocolate em pó<br>
+1 xícara (chá) de leite<br>
+1 xícara (chá) de açúcar
+    </p>
+  </div>
+
+  <button onclick="alternarTexto()" id="botao">Ver modo de preparo</button>
+
+  <!-- SCRIPTS -->
+  <script>
+    function showDateTime() {
+      let now = new Date();
+      document.getElementById("datetime").innerHTML = now.toLocaleString();
+    }
+
+    function changeImage() {
+      let img = document.getElementById("myImage");
+      if (img.src.includes("/home/escola/maria/bolo-de-cenoura-low-carb-fit-1675176378739_v2_300x400.jpg")) {
+        img.src = "bolo_cenoura_horizontal.webp";
+      } else {
+        img.src = "bolo-de-cenoura-low-carb-fit-1675176378739_v2_300x400.jpg";
+      }
+    }
+
+    let mostrandoIngredientes = true;
+
+    function alternarTexto() {
+      const texto = document.getElementById("texto");
+      const botao = document.getElementById("botao");
+
+      if (mostrandoIngredientes) {
+        texto.innerHTML = `
+          <p><strong>MODO DE PREPARO:</strong></p>
+          <p>
+            
+<p>MASSA</p>
+1
+Em um liquidificador, adicione a cenoura, os ovos e o óleo, depois misture.<br>
+
+2
+Acrescente o açúcar e bata novamente por 5 minutos.<br>
+
+3
+Em uma tigela ou na batedeira, adicione a farinha de trigo e depois misture novamente.<br>
+
+4
+Acrescente o fermento e misture lentamente com uma colher.<br>
+
+5
+Asse em um forno preaquecido a 180° C por aproximadamente 40 minutos.<br>
+
+<p>COBERTURA</p>
+
+6
+Despeje em uma tigela a manteiga, o chocolate em pó, o açúcar e o leite, depois misture.<br>
+
+7
+Leve a mistura ao fogo e continue misturando até obter uma consistência cremosa, depois despeje a calda por cima do bolo.<br>
+          </p>
+        `;
+        botao.textContent = "Ver ingredientes";
+      } else {
+        texto.innerHTML = `
+          <p><strong>INGREDIENTES:</strong></p>
+          <p>
+            1/2 xícara (chá) de óleo<br>
+        3 cenouras médias raladas<br>
+        4 ovos<br>
+        2 e 1/2 xícaras (chá) de farinha de trigo<br>
+        2 xícaras (chá) de açúcar<br>
+      
+1 colher (sopa) de fermento em pó<br>
+      <p>COBERTURA</p>
+      
+1 colher (sopa) de manteiga<br>
+3 colheres (sopa) de chocolate em pó<br>
+1 xícara (chá) de leite<br>
+1 xícara (chá) de açúcar
+          </p>
+        `;
+        botao.textContent = "Ver modo de preparo";
+      }
+
+      mostrandoIngredientes = !mostrandoIngredientes;
+    }
+  </script>
+
+
+</body>
+</html>
